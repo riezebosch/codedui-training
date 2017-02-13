@@ -25,6 +25,19 @@ namespace CodedUITestProject1
         [TestMethod]
         public void CodedUITestMethod1()
         {
+
+            this
+                .UIMap
+                .InvoerenGegevensParams
+                .UIEmailEditText = 
+                    Guid.NewGuid() + "@gmail.com";
+
+
+            this.UIMap.InvoerenGegevens();
+
+            this.UIMap.AssertDemoActivationPage();
+
+
         }
 
         #region Additional test attributes
