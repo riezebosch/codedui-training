@@ -58,42 +58,6 @@
       <WorkItemId>0</WorkItemId>
       <MarkerRegionType>Assertion</MarkerRegionType>
     </TestStepMarkerAction>
-    <MouseAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIHomePageASPNETMVCMusDocument.UIRegisterHyperlink">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Location X="49" Y="25" />
-      <WheelDirection>0</WheelDirection>
-      <ActionType>Click</ActionType>
-      <MouseButton>Left</MouseButton>
-    </MouseAction>
-    <SetValueAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIEmailEdit">
-      <ParameterName />
-      <Value Encoded="false">demo@gmail.com</Value>
-      <Type>String</Type>
-    </SetValueAction>
-    <SendKeysAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIEmailEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Text Encoded="false">{Tab}</Text>
-    </SendKeysAction>
-    <SetValueAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIPasswordEdit">
-      <ParameterName />
-      <Value Encoded="true">K2gHpANDeOOtYhGGA0aZ04zjQIbIYSLh</Value>
-      <Type>String</Type>
-    </SetValueAction>
-    <SendKeysAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIPasswordEdit">
-      <ParameterName />
-      <ModifierKeys>None</ModifierKeys>
-      <IsGlobalHotkey>false</IsGlobalHotkey>
-      <Text Encoded="false">{Tab}</Text>
-    </SendKeysAction>
-    <SetValueAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIConfirmpasswordEdit">
-      <ParameterName />
-      <Value Encoded="true">K2gHpANDeOOtYhGGA0aZ04zjQIbIYSLh</Value>
-      <Type>String</Type>
-    </SetValueAction>
     <MouseAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIRegisterButton">
       <ParameterName />
       <ModifierKeys>None</ModifierKeys>
@@ -103,7 +67,67 @@
       <ActionType>Click</ActionType>
       <MouseButton>Left</MouseButton>
     </MouseAction>
-    <TestStepMarkerAction Comment="" MarkerInformation="InvoerenGegevens">
+    <TestStepMarkerAction MarkerInformation="ClickRegister">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <SetValueAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIEmailEdit">
+      <ParameterName />
+      <Value Encoded="false">demo@gmail.com</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <TestStepMarkerAction MarkerInformation="EnterEmailAddress">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <SetValueAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIPasswordEdit">
+      <ParameterName />
+      <Value Encoded="true">K2gHpANDeOOtYhGGA0aZ04zjQIbIYSLh</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <TestStepMarkerAction MarkerInformation="EnterPassword">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <SetValueAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIConfirmpasswordEdit">
+      <ParameterName />
+      <Value Encoded="true">K2gHpANDeOOtYhGGA0aZ04zjQIbIYSLh</Value>
+      <Type>String</Type>
+    </SetValueAction>
+    <TestStepMarkerAction MarkerInformation="EnterPasswordConfirmation">
+      <ParameterName />
+      <StepId>-1</StepId>
+      <Direction>Start</Direction>
+      <Outcome />
+      <Disabled>false</Disabled>
+      <WorkItemId>0</WorkItemId>
+      <MarkerRegionType>Action</MarkerRegionType>
+    </TestStepMarkerAction>
+    <MouseAction UIObjectName="UIMap.UIHomePageASPNETMVCMusWindow.UIHomePageASPNETMVCMusDocument.UIRegisterHyperlink">
+      <ParameterName />
+      <ModifierKeys>None</ModifierKeys>
+      <IsGlobalHotkey>false</IsGlobalHotkey>
+      <Location X="49" Y="25" />
+      <WheelDirection>0</WheelDirection>
+      <ActionType>Click</ActionType>
+      <MouseButton>Left</MouseButton>
+    </MouseAction>
+    <TestStepMarkerAction Comment="" MarkerInformation="NavigateRegisterPage">
       <ParameterName />
       <StepId>-1</StepId>
       <Direction>Start</Direction>

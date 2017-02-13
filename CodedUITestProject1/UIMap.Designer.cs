@@ -43,38 +43,68 @@ namespace CodedUITestProject1
         }
         
         /// <summary>
-        /// InvoerenGegevens - Use 'InvoerenGegevensParams' to pass parameters into this method.
+        /// ClickRegister
         /// </summary>
-        public void InvoerenGegevens()
+        public void ClickRegister()
+        {
+            #region Variable Declarations
+            HtmlInputButton uIRegisterButton = this.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIRegisterButton;
+            #endregion
+
+            // Click 'Register' button
+            Mouse.Click(uIRegisterButton, new Point(25, 24));
+        }
+        
+        /// <summary>
+        /// EnterEmailAddress - Use 'EnterEmailAddressParams' to pass parameters into this method.
+        /// </summary>
+        public void EnterEmailAddress()
+        {
+            #region Variable Declarations
+            HtmlEdit uIEmailEdit = this.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIEmailEdit;
+            #endregion
+
+            // Type 'demo@gmail.com' in 'Email' text box
+            uIEmailEdit.Text = this.EnterEmailAddressParams.UIEmailEditText;
+        }
+        
+        /// <summary>
+        /// EnterPassword - Use 'EnterPasswordParams' to pass parameters into this method.
+        /// </summary>
+        public void EnterPassword()
+        {
+            #region Variable Declarations
+            HtmlEdit uIPasswordEdit = this.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIPasswordEdit;
+            #endregion
+
+            // Type '********' in 'Password' text box
+            uIPasswordEdit.Password = this.EnterPasswordParams.UIPasswordEditPassword;
+        }
+        
+        /// <summary>
+        /// EnterPasswordConfirmation - Use 'EnterPasswordConfirmationParams' to pass parameters into this method.
+        /// </summary>
+        public void EnterPasswordConfirmation()
+        {
+            #region Variable Declarations
+            HtmlEdit uIConfirmpasswordEdit = this.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIConfirmpasswordEdit;
+            #endregion
+
+            // Type '********' in 'Confirm password' text box
+            uIConfirmpasswordEdit.Password = this.EnterPasswordConfirmationParams.UIConfirmpasswordEditPassword;
+        }
+        
+        /// <summary>
+        /// NavigateRegisterPage
+        /// </summary>
+        public void NavigateRegisterPage()
         {
             #region Variable Declarations
             HtmlHyperlink uIRegisterHyperlink = this.UIHomePageASPNETMVCMusWindow.UIHomePageASPNETMVCMusDocument.UIRegisterHyperlink;
-            HtmlEdit uIEmailEdit = this.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIEmailEdit;
-            HtmlEdit uIPasswordEdit = this.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIPasswordEdit;
-            HtmlEdit uIConfirmpasswordEdit = this.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIConfirmpasswordEdit;
-            HtmlInputButton uIRegisterButton = this.UIHomePageASPNETMVCMusWindow.UIRegisterASPNETMVCMusDocument.UIRegisterButton;
             #endregion
 
             // Click 'Register' link
             Mouse.Click(uIRegisterHyperlink, new Point(49, 25));
-
-            // Type 'demo@gmail.com' in 'Email' text box
-            uIEmailEdit.Text = this.InvoerenGegevensParams.UIEmailEditText;
-
-            // Type '{Tab}' in 'Email' text box
-            Keyboard.SendKeys(uIEmailEdit, this.InvoerenGegevensParams.UIEmailEditSendKeys, ModifierKeys.None);
-
-            // Type '********' in 'Password' text box
-            uIPasswordEdit.Password = this.InvoerenGegevensParams.UIPasswordEditPassword;
-
-            // Type '{Tab}' in 'Password' text box
-            Keyboard.SendKeys(uIPasswordEdit, this.InvoerenGegevensParams.UIPasswordEditSendKeys, ModifierKeys.None);
-
-            // Type '********' in 'Confirm password' text box
-            uIConfirmpasswordEdit.Password = this.InvoerenGegevensParams.UIConfirmpasswordEditPassword;
-
-            // Click 'Register' button
-            Mouse.Click(uIRegisterButton, new Point(25, 24));
         }
         
         #region Properties
@@ -90,15 +120,39 @@ namespace CodedUITestProject1
             }
         }
         
-        public virtual InvoerenGegevensParams InvoerenGegevensParams
+        public virtual EnterEmailAddressParams EnterEmailAddressParams
         {
             get
             {
-                if ((this.mInvoerenGegevensParams == null))
+                if ((this.mEnterEmailAddressParams == null))
                 {
-                    this.mInvoerenGegevensParams = new InvoerenGegevensParams();
+                    this.mEnterEmailAddressParams = new EnterEmailAddressParams();
                 }
-                return this.mInvoerenGegevensParams;
+                return this.mEnterEmailAddressParams;
+            }
+        }
+        
+        public virtual EnterPasswordParams EnterPasswordParams
+        {
+            get
+            {
+                if ((this.mEnterPasswordParams == null))
+                {
+                    this.mEnterPasswordParams = new EnterPasswordParams();
+                }
+                return this.mEnterPasswordParams;
+            }
+        }
+        
+        public virtual EnterPasswordConfirmationParams EnterPasswordConfirmationParams
+        {
+            get
+            {
+                if ((this.mEnterPasswordConfirmationParams == null))
+                {
+                    this.mEnterPasswordConfirmationParams = new EnterPasswordConfirmationParams();
+                }
+                return this.mEnterPasswordConfirmationParams;
             }
         }
         
@@ -118,7 +172,11 @@ namespace CodedUITestProject1
         #region Fields
         private AssertDemoActivationPageExpectedValues mAssertDemoActivationPageExpectedValues;
         
-        private InvoerenGegevensParams mInvoerenGegevensParams;
+        private EnterEmailAddressParams mEnterEmailAddressParams;
+        
+        private EnterPasswordParams mEnterPasswordParams;
+        
+        private EnterPasswordConfirmationParams mEnterPasswordConfirmationParams;
         
         private UIHomePageASPNETMVCMusWindow mUIHomePageASPNETMVCMusWindow;
         #endregion
@@ -140,10 +198,10 @@ namespace CodedUITestProject1
     }
     
     /// <summary>
-    /// Parameters to be passed into 'InvoerenGegevens'
+    /// Parameters to be passed into 'EnterEmailAddress'
     /// </summary>
     [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
-    public class InvoerenGegevensParams
+    public class EnterEmailAddressParams
     {
         
         #region Fields
@@ -151,22 +209,32 @@ namespace CodedUITestProject1
         /// Type 'demo@gmail.com' in 'Email' text box
         /// </summary>
         public string UIEmailEditText = "demo@gmail.com";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'EnterPassword'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class EnterPasswordParams
+    {
         
-        /// <summary>
-        /// Type '{Tab}' in 'Email' text box
-        /// </summary>
-        public string UIEmailEditSendKeys = "{Tab}";
-        
+        #region Fields
         /// <summary>
         /// Type '********' in 'Password' text box
         /// </summary>
         public string UIPasswordEditPassword = "K2gHpANDeOOtYhGGA0aZ04zjQIbIYSLh";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'EnterPasswordConfirmation'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class EnterPasswordConfirmationParams
+    {
         
-        /// <summary>
-        /// Type '{Tab}' in 'Password' text box
-        /// </summary>
-        public string UIPasswordEditSendKeys = "{Tab}";
-        
+        #region Fields
         /// <summary>
         /// Type '********' in 'Confirm password' text box
         /// </summary>
