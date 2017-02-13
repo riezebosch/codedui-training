@@ -19,6 +19,7 @@ namespace CodedUITestProject1
     using Microsoft.VisualStudio.TestTools.UITest.Extension;
     using Microsoft.VisualStudio.TestTools.UITesting;
     using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
+    using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
     using Mouse = Microsoft.VisualStudio.TestTools.UITesting.Mouse;
@@ -107,6 +108,16 @@ namespace CodedUITestProject1
             Mouse.Click(uIRegisterHyperlink, new Point(49, 25));
         }
         
+        /// <summary>
+        /// StartBrowser - Use 'StartBrowserParams' to pass parameters into this method.
+        /// </summary>
+        public void StartBrowser()
+        {
+
+            // Go to web page 'http://localhost:5000/' using new browser instance
+            this.UIHomePageASPNETMVCMusWindow.LaunchUrl(new System.Uri(this.StartBrowserParams.UIHomePageASPNETMVCMusWindowUrl));
+        }
+        
         #region Properties
         public virtual AssertDemoActivationPageExpectedValues AssertDemoActivationPageExpectedValues
         {
@@ -156,6 +167,18 @@ namespace CodedUITestProject1
             }
         }
         
+        public virtual StartBrowserParams StartBrowserParams
+        {
+            get
+            {
+                if ((this.mStartBrowserParams == null))
+                {
+                    this.mStartBrowserParams = new StartBrowserParams();
+                }
+                return this.mStartBrowserParams;
+            }
+        }
+        
         public UIHomePageASPNETMVCMusWindow UIHomePageASPNETMVCMusWindow
         {
             get
@@ -165,6 +188,42 @@ namespace CodedUITestProject1
                     this.mUIHomePageASPNETMVCMusWindow = new UIHomePageASPNETMVCMusWindow();
                 }
                 return this.mUIHomePageASPNETMVCMusWindow;
+            }
+        }
+        
+        public UIItemWindow UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow();
+                }
+                return this.mUIItemWindow;
+            }
+        }
+        
+        public UIStartmenuWindow UIStartmenuWindow
+        {
+            get
+            {
+                if ((this.mUIStartmenuWindow == null))
+                {
+                    this.mUIStartmenuWindow = new UIStartmenuWindow();
+                }
+                return this.mUIStartmenuWindow;
+            }
+        }
+        
+        public UIRunWindow UIRunWindow
+        {
+            get
+            {
+                if ((this.mUIRunWindow == null))
+                {
+                    this.mUIRunWindow = new UIRunWindow();
+                }
+                return this.mUIRunWindow;
             }
         }
         #endregion
@@ -178,7 +237,15 @@ namespace CodedUITestProject1
         
         private EnterPasswordConfirmationParams mEnterPasswordConfirmationParams;
         
+        private StartBrowserParams mStartBrowserParams;
+        
         private UIHomePageASPNETMVCMusWindow mUIHomePageASPNETMVCMusWindow;
+        
+        private UIItemWindow mUIItemWindow;
+        
+        private UIStartmenuWindow mUIStartmenuWindow;
+        
+        private UIRunWindow mUIRunWindow;
         #endregion
     }
     
@@ -239,6 +306,21 @@ namespace CodedUITestProject1
         /// Type '********' in 'Confirm password' text box
         /// </summary>
         public string UIConfirmpasswordEditPassword = "K2gHpANDeOOtYhGGA0aZ04zjQIbIYSLh";
+        #endregion
+    }
+    
+    /// <summary>
+    /// Parameters to be passed into 'StartBrowser'
+    /// </summary>
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class StartBrowserParams
+    {
+        
+        #region Fields
+        /// <summary>
+        /// Go to web page 'http://localhost:5000/' using new browser instance
+        /// </summary>
+        public string UIHomePageASPNETMVCMusWindowUrl = "http://localhost:5000/";
         #endregion
     }
     
@@ -525,6 +607,176 @@ namespace CodedUITestProject1
         
         #region Fields
         private HtmlCustom mUIItemCustom;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIItemWindow : WinWindow
+    {
+        
+        public UIItemWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.AccessibleName] = "Desktop";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32769";
+            #endregion
+        }
+        
+        #region Properties
+        public WinClient UIStartClient
+        {
+            get
+            {
+                if ((this.mUIStartClient == null))
+                {
+                    this.mUIStartClient = new WinClient(this);
+                    #region Search Criteria
+                    this.mUIStartClient.SearchProperties[WinControl.PropertyNames.Name] = "Start";
+                    #endregion
+                }
+                return this.mUIStartClient;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinClient mUIStartClient;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIStartmenuWindow : WinWindow
+    {
+        
+        public UIStartmenuWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Start menu";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "ImmersiveLauncher";
+            this.WindowTitles.Add("Start menu");
+            #endregion
+        }
+        
+        #region Properties
+        public UIServerManagerGroup UIServerManagerGroup
+        {
+            get
+            {
+                if ((this.mUIServerManagerGroup == null))
+                {
+                    this.mUIServerManagerGroup = new UIServerManagerGroup(this);
+                }
+                return this.mUIServerManagerGroup;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIServerManagerGroup mUIServerManagerGroup;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIServerManagerGroup : WinGroup
+    {
+        
+        public UIServerManagerGroup(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinControl.PropertyNames.Name] = "Server Manager";
+            this.WindowTitles.Add("Start menu");
+            #endregion
+        }
+        
+        #region Properties
+        public WinListItem UIInternetExplorerListItem
+        {
+            get
+            {
+                if ((this.mUIInternetExplorerListItem == null))
+                {
+                    this.mUIInternetExplorerListItem = new WinListItem(this);
+                    #region Search Criteria
+                    this.mUIInternetExplorerListItem.SearchProperties[WinListItem.PropertyNames.Name] = "Internet Explorer";
+                    this.mUIInternetExplorerListItem.WindowTitles.Add("Start menu");
+                    #endregion
+                }
+                return this.mUIInternetExplorerListItem;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinListItem mUIInternetExplorerListItem;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIRunWindow : WinWindow
+    {
+        
+        public UIRunWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Run";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "#32770";
+            this.WindowTitles.Add("Run");
+            #endregion
+        }
+        
+        #region Properties
+        public UIItemWindow1 UIItemWindow
+        {
+            get
+            {
+                if ((this.mUIItemWindow == null))
+                {
+                    this.mUIItemWindow = new UIItemWindow1(this);
+                }
+                return this.mUIItemWindow;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIItemWindow1 mUIItemWindow;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "14.0.23107.0")]
+    public class UIItemWindow1 : WinWindow
+    {
+        
+        public UIItemWindow1(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.ControlId] = "1001";
+            this.WindowTitles.Add("Run");
+            #endregion
+        }
+        
+        #region Properties
+        public WinEdit UIOpenEdit
+        {
+            get
+            {
+                if ((this.mUIOpenEdit == null))
+                {
+                    this.mUIOpenEdit = new WinEdit(this);
+                    #region Search Criteria
+                    this.mUIOpenEdit.SearchProperties[WinEdit.PropertyNames.Name] = "Open:";
+                    this.mUIOpenEdit.WindowTitles.Add("Run");
+                    #endregion
+                }
+                return this.mUIOpenEdit;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinEdit mUIOpenEdit;
         #endregion
     }
 }

@@ -25,6 +25,9 @@ namespace CodedUITestProject1
         [TestMethod]
         public void CodedUITestMethod1()
         {
+
+            this.UIMap.StartBrowser();
+
             this.UIMap.NavigateRegisterPage();
 
             this
