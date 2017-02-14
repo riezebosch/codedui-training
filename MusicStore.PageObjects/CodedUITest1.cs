@@ -4,11 +4,9 @@ using System.Text.RegularExpressions;
 using System.Windows.Input;
 using System.Windows.Forms;
 using System.Drawing;
+using CUITe.PageObjects;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
 
 namespace MusicStore.PageObjects
 {
@@ -21,11 +19,7 @@ namespace MusicStore.PageObjects
         [TestMethod]
         public void Twee_Keer_Zelfde_Album_ToevoegenGeeft2InMandjeBoveninDeStatusBalk()
         {
-
-            var browser = BrowserWindow
-                .Launch("http://localhost:5000", "-private");
-
-            var cart = new HomePage(browser)
+            var cart = Page.Launch<HomePage>("http://localhost:5000")
                 .ClickStore()
                 .SelectGenre("Rock")
                 .SelectAlbum("Led Zeppelin III")

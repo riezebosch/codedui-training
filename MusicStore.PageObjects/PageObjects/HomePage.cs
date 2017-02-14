@@ -1,52 +1,35 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UITesting;
-using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 using Microsoft.VisualStudio.TestTools.UITest.Extension;
+using CUITe.PageObjects;
+using CUITe.SearchConfigurations;
+using CUITe.Controls.HtmlControls;
 
 namespace MusicStore.PageObjects
 {
-    internal class HomePage
+    internal class HomePage : Page
     {
-        protected BrowserWindow browser;
-
-        public HomePage(BrowserWindow browser)
-        {
-            this.browser = browser;
-        }
-
         internal HomePage ClickStore()
         {
-            HtmlHyperlink store = 
-                new HtmlHyperlink(browser);
-            store
-                .SearchProperties
-                .Add(HtmlHyperlink.PropertyNames.Href, 
-                new Uri(browser.Uri, "Store").AbsoluteUri);
-
-            store.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
-
-            Mouse.Click(store);
+            Browser
+                .Find<HtmlHyperlink>(
+                    By.SearchProperties($"href={new Uri(Browser.Uri, "/Store").AbsoluteUri}"))
+                .Click();
             return this;
         }
 
         internal AlbumOverviewPage SelectGenre(string genre)
         {
-            HtmlHyperlink link = 
-                new HtmlHyperlink(browser);
-            link
-                .SearchProperties
-                .Add(HtmlHyperlink.PropertyNames.InnerText, genre);
-
-            Mouse.Click(link);
-
-            return new AlbumOverviewPage(browser);
+            Browser
+                .Find<HtmlHyperlink>(
+                    By.SearchProperties($"InnerText={genre}"))
+                .Click();
+            return NavigateTo<AlbumOverviewPage>();
         }
 
         internal int? CartStatus()
         {
-            var span = new HtmlSpan(browser);
-            span.SearchProperties.Add(HtmlSpan.PropertyNames.Id, "cart-status");
-
+            var span = Browser.Find<HtmlSpan>(By.Id("cart-status"));
             return span.Exists ? (int?)int.Parse(span.InnerText) : null;
         }
     }

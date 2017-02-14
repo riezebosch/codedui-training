@@ -1,27 +1,21 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UITesting;
-using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 using System.Linq;
+using CUITe.SearchConfigurations;
+using CUITe.Controls.HtmlControls;
+using Microsoft.VisualStudio.TestTools.UITesting;
 
 namespace MusicStore.PageObjects
 {
     internal class AlbumOverviewPage : HomePage
     {
-        public AlbumOverviewPage(BrowserWindow browser)
-            : base(browser)
-        {
-        }
-
         internal AlbumDetailsPage SelectAlbum(string title)
         {
-            var label = new HtmlControl(browser);
-            label.SearchProperties[HtmlControl.PropertyNames.TagName] = "h5";
-            label.SearchProperties[HtmlControl.PropertyNames.InnerText] = title;
-
-            var link = label.GetParent();
-            Mouse.Click(link);
-
-            return new AlbumDetailsPage(browser);
+            Browser
+                .Find<HtmlHeading5>(
+                    By.SearchProperties($"InnerText={title}"))
+                .Parent
+                .Click();
+            return NavigateTo<AlbumDetailsPage>();
         }
     }
 }

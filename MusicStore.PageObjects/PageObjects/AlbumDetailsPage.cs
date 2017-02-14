@@ -6,23 +6,18 @@ namespace MusicStore.PageObjects
 {
     internal class AlbumDetailsPage : HomePage
     {
-        public AlbumDetailsPage(BrowserWindow browser)
-            : base(browser)
-        {
-        }
-
         internal ShoppingCart AddToCart()
         {
-            HtmlHyperlink link = new HtmlHyperlink(browser);
+            HtmlHyperlink link = new HtmlHyperlink(Browser);
             link
                 .SearchProperties
                 .Add(HtmlHyperlink.PropertyNames.Href, 
-                    new Uri(browser.Uri, "/ShoppingCart/AddToCart/").AbsoluteUri,
+                    new Uri(Browser.Uri, "/ShoppingCart/AddToCart/").AbsoluteUri,
                     PropertyExpressionOperator.Contains);
 
             Mouse.Click(link);
 
-            return new ShoppingCart(browser);
+            return NavigateTo<ShoppingCart>();
         }
     }
 }
