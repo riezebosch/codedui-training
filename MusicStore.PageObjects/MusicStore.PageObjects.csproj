@@ -54,10 +54,10 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlbumDetailsPage.cs" />
-    <Compile Include="AlbumOverviewPage.cs" />
+    <Compile Include="PageObjects\AlbumDetailsPage.cs" />
+    <Compile Include="PageObjects\AlbumOverviewPage.cs" />
     <Compile Include="CodedUITest1.cs" />
-    <Compile Include="HomePage.cs" />
+    <Compile Include="PageObjects\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>
