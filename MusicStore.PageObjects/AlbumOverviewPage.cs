@@ -16,11 +16,12 @@ namespace MusicStore.PageObjects
 
         internal AlbumDetailsPage SelectAlbum(string title)
         {
-            var img = new HtmlImage(browser);
-            img.SearchProperties[HtmlImage.PropertyNames.Alt] = title;
-            img.EnsureClickable();
+            var label = new HtmlControl(browser);
+            label.SearchProperties[HtmlControl.PropertyNames.TagName] = "h5";
+            label.SearchProperties[HtmlControl.PropertyNames.InnerText] = title;
 
-            Mouse.Click(img);
+            var link = label.GetParent();
+            Mouse.Click(link);
 
             return new AlbumDetailsPage(browser);
         }

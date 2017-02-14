@@ -18,10 +18,6 @@ namespace MusicStore.PageObjects
     [CodedUITest]
     public class CodedUITest1
     {
-        public CodedUITest1()
-        {
-        }
-
         [TestMethod]
         public void WinkelMandjeVullen()
         {
