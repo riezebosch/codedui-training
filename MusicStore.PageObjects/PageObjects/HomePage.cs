@@ -6,18 +6,14 @@ namespace MusicStore.PageObjects
 {
     internal class HomePage
     {
-        private BrowserWindow browser;
-
-        public HomePage()
-        {
-        }
+        protected BrowserWindow browser;
 
         public HomePage(BrowserWindow browser)
         {
             this.browser = browser;
         }
 
-        internal void ClickStore()
+        internal HomePage ClickStore()
         {
             HtmlHyperlink store = 
                 new HtmlHyperlink(browser);
@@ -27,6 +23,7 @@ namespace MusicStore.PageObjects
                 new Uri(browser.Uri, "Store").AbsoluteUri);
 
             Mouse.Click(store);
+            return this;
         }
 
         internal AlbumOverviewPage SelectGenre(string genre)

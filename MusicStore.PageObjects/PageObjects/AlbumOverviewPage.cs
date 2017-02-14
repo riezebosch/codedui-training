@@ -5,13 +5,11 @@ using System.Linq;
 
 namespace MusicStore.PageObjects
 {
-    internal class AlbumOverviewPage
+    internal class AlbumOverviewPage : HomePage
     {
-        private BrowserWindow browser;
-
         public AlbumOverviewPage(BrowserWindow browser)
+            : base(browser)
         {
-            this.browser = browser;
         }
 
         internal AlbumDetailsPage SelectAlbum(string title)

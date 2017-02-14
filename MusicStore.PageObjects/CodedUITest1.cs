@@ -26,12 +26,13 @@ namespace MusicStore.PageObjects
                 .Launch(new Uri("http://localhost:5000"));
 
             var home = new HomePage(browser);
-            home.ClickStore();
-            var albums = home.SelectGenre("Rock");
+            home.ClickStore()
+                .SelectGenre("Rock")
+                .SelectAlbum("Led Zeppelin III")
+                .AddToCart()
+                .ClickStore()
+                .SelectGenre("Rock");
 
-            var details = albums.SelectAlbum("Led Zeppelin III");
-
-            details.AddToCart();
         }
 
         #region Additional test attributes

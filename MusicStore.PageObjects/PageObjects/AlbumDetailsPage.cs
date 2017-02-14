@@ -4,16 +4,14 @@ using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
 namespace MusicStore.PageObjects
 {
-    internal class AlbumDetailsPage
+    internal class AlbumDetailsPage : HomePage
     {
-        private BrowserWindow browser;
-
         public AlbumDetailsPage(BrowserWindow browser)
+            : base(browser)
         {
-            this.browser = browser;
         }
 
-        internal void AddToCart()
+        internal ShoppingCart AddToCart()
         {
             HtmlHyperlink link = new HtmlHyperlink(browser);
             link
@@ -23,6 +21,8 @@ namespace MusicStore.PageObjects
                     PropertyExpressionOperator.Contains);
 
             Mouse.Click(link);
+
+            return new ShoppingCart(browser);
         }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="PageObjects\AlbumOverviewPage.cs" />
     <Compile Include="CodedUITest1.cs" />
     <Compile Include="PageObjects\HomePage.cs" />
+    <Compile Include="PageObjects\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>
