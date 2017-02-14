@@ -1,8 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using TechTalk.SpecFlow;
+using Xunit;
 
 namespace MusicStore.PageObjects
 {
@@ -14,6 +14,7 @@ namespace MusicStore.PageObjects
         {
             IWebDriver driver = new ChromeDriver();
             driver.Url = "http://localhost:5000";
+            ScenarioContext.Current.Set(driver);
 
             var home = new HomePage(driver);
             ScenarioContext.Current.Set(home);
@@ -50,7 +51,7 @@ namespace MusicStore.PageObjects
         public void ThenTheNumberOnTheShoppingCartShouldBe(int total)
         {
             var cart = ScenarioContext.Current.Get<ShoppingCart>();
-            Assert.AreEqual(total, cart.CartStatus());
+            Assert.Equal(total, cart.CartStatus());
         }
 
         [When(@"I add '(.*)' from the '(.*)' albums")]
@@ -66,5 +67,11 @@ namespace MusicStore.PageObjects
             ScenarioContext.Current.Set(cart);
         }
 
+        [AfterScenario]
+        public void CloseBrowser()
+        {
+            var driver = ScenarioContext.Current.Get<IWebDriver>();
+            driver?.Close();
+        }
     }
 }

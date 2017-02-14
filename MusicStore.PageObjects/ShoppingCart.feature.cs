@@ -17,8 +17,7 @@ namespace MusicStore.PageObjects
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class ShoppingCartFeature
+    public partial class ShoppingCartFeature : Xunit.IClassFixture<ShoppingCartFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -26,33 +25,29 @@ namespace MusicStore.PageObjects
 #line 1 "ShoppingCart.feature"
 #line hidden
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
-        public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
+        public ShoppingCartFeature()
         {
-            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
+            this.TestInitialize();
+        }
+        
+        public static void FeatureSetup()
+        {
+            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ShoppingCart", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
                     "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute()]
         public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute()]
         public virtual void TestInitialize()
         {
-            if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Title != "ShoppingCart")))
-            {
-                global::MusicStore.PageObjects.ShoppingCartFeature.FeatureSetup(null);
-            }
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -68,10 +63,19 @@ namespace MusicStore.PageObjects
             testRunner.CollectScenarioErrors();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add same album twice")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ShoppingCart")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
+        public virtual void SetFixture(ShoppingCartFeature.FixtureData fixtureData)
+        {
+        }
+        
+        void System.IDisposable.Dispose()
+        {
+            this.ScenarioTearDown();
+        }
+        
+        [Xunit.FactAttribute(DisplayName="Add same album twice")]
+        [Xunit.TraitAttribute("FeatureTitle", "ShoppingCart")]
+        [Xunit.TraitAttribute("Description", "Add same album twice")]
+        [Xunit.TraitAttribute("Category", "mytag")]
         public virtual void AddSameAlbumTwice()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add same album twice", new string[] {
@@ -98,9 +102,9 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add different album")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ShoppingCart")]
+        [Xunit.FactAttribute(DisplayName="Add different album")]
+        [Xunit.TraitAttribute("FeatureTitle", "ShoppingCart")]
+        [Xunit.TraitAttribute("Description", "Add different album")]
         public virtual void AddDifferentAlbum()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add different album", ((string[])(null)));
@@ -126,9 +130,9 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Add same album twice short")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "ShoppingCart")]
+        [Xunit.FactAttribute(DisplayName="Add same album twice short")]
+        [Xunit.TraitAttribute("FeatureTitle", "ShoppingCart")]
+        [Xunit.TraitAttribute("Description", "Add same album twice short")]
         public virtual void AddSameAlbumTwiceShort()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add same album twice short", ((string[])(null)));
@@ -144,6 +148,22 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Then("the number on the shopping cart should be 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
+        [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        public class FixtureData : System.IDisposable
+        {
+            
+            public FixtureData()
+            {
+                ShoppingCartFeature.FeatureSetup();
+            }
+            
+            void System.IDisposable.Dispose()
+            {
+                ShoppingCartFeature.FeatureTearDown();
+            }
         }
     }
 }
