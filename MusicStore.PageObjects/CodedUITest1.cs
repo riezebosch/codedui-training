@@ -19,7 +19,7 @@ namespace MusicStore.PageObjects
     public class CodedUITest1
     {
         [TestMethod]
-        public void WinkelMandjeVullen()
+        public void Twee_Keer_Zelfde_Album_ToevoegenGeeft2InMandjeBoveninDeStatusBalk()
         {
 
             var browser = BrowserWindow
@@ -36,6 +36,7 @@ namespace MusicStore.PageObjects
                 .AddToCart();
             
             Assert.AreEqual(2, cart.CartStatus());
+
 
         }
 
