@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 
 namespace MusicStore.PageObjects
 {

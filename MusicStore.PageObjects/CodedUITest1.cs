@@ -23,15 +23,19 @@ namespace MusicStore.PageObjects
         {
 
             var browser = BrowserWindow
-                .Launch(new Uri("http://localhost:5000"));
+                .Launch("http://localhost:5000", "-private");
 
-            var home = new HomePage(browser);
-            home.ClickStore()
+            var cart = new HomePage(browser)
+                .ClickStore()
                 .SelectGenre("Rock")
                 .SelectAlbum("Led Zeppelin III")
                 .AddToCart()
                 .ClickStore()
-                .SelectGenre("Rock");
+                .SelectGenre("Rock")
+                .SelectAlbum("Led Zeppelin III")
+                .AddToCart();
+            
+            Assert.AreEqual(2, cart.CartStatus());
 
         }
 
