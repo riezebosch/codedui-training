@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Linq;
-using CUITe.SearchConfigurations;
-using CUITe.Controls.HtmlControls;
 using Microsoft.VisualStudio.TestTools.UITesting;
+using OpenQA.Selenium;
 
 namespace MusicStore.PageObjects
 {
     internal class AlbumOverviewPage : HomePage
     {
+        public AlbumOverviewPage(IWebDriver driver) 
+            : base(driver)
+        {
+        }
+
         internal AlbumDetailsPage SelectAlbum(string title)
         {
-            Browser
-                .Find<HtmlHeading5>(
-                    By.SearchProperties($"InnerText={title}"))
-                .Parent
+            driver
+                .FindElement(
+                    By.LinkText(title))
                 .Click();
-            return NavigateTo<AlbumDetailsPage>();
+            return new AlbumDetailsPage(driver);
         }
     }
 }

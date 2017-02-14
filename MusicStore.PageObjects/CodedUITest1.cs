@@ -4,22 +4,39 @@ using System.Text.RegularExpressions;
 using System.Windows.Input;
 using System.Windows.Forms;
 using System.Drawing;
-using CUITe.PageObjects;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 
 namespace MusicStore.PageObjects
 {
     /// <summary>
     /// Summary description for CodedUITest1
     /// </summary>
-    [CodedUITest]
+    [TestClass]
     public class CodedUITest1
     {
+        IWebDriver driver;
+
+        [TestInitialize]
+        public void OpenBrowser()
+        {
+            driver = new ChromeDriver();
+            driver.Url = "http://localhost:5000";
+        }
+
+        [TestCleanup]
+        public void CloseBrowser()
+        {
+            driver.Close();
+        }
+
         [TestMethod]
         public void Twee_Keer_Zelfde_Album_ToevoegenGeeft2InMandjeBoveninDeStatusBalk()
         {
-            var cart = Page.Launch<HomePage>("http://localhost:5000")
+            var cart = new HomePage(driver)
                 .ClickStore()
                 .SelectGenre("Rock")
                 .SelectAlbum("Led Zeppelin III")
@@ -28,10 +45,24 @@ namespace MusicStore.PageObjects
                 .SelectGenre("Rock")
                 .SelectAlbum("Led Zeppelin III")
                 .AddToCart();
-            
+
             Assert.AreEqual(2, cart.CartStatus());
+        }
 
+        [TestMethod]
+        public void Twee_Verschillende_Albums_ToevoegenGeeft2InMandjeBoveninDeStatusBalk()
+        {
+            var cart = new HomePage(driver)
+                .ClickStore()
+                .SelectGenre("Rock")
+                .SelectAlbum("Led Zeppelin III")
+                .AddToCart()
+                .ClickStore()
+                .SelectGenre("Jazz")
+                .SelectAlbum("Quiet Songs")
+                .AddToCart();
 
+            Assert.AreEqual(2, cart.CartStatus());
         }
 
         #region Additional test attributes

@@ -1,23 +1,19 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UITesting;
-using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
+using OpenQA.Selenium;
 
 namespace MusicStore.PageObjects
 {
     internal class AlbumDetailsPage : HomePage
     {
+        public AlbumDetailsPage(IWebDriver driver) 
+            : base(driver)
+        {
+        }
+
         internal ShoppingCart AddToCart()
         {
-            HtmlHyperlink link = new HtmlHyperlink(Browser);
-            link
-                .SearchProperties
-                .Add(HtmlHyperlink.PropertyNames.Href, 
-                    new Uri(Browser.Uri, "/ShoppingCart/AddToCart/").AbsoluteUri,
-                    PropertyExpressionOperator.Contains);
-
-            Mouse.Click(link);
-
-            return NavigateTo<ShoppingCart>();
+            driver.FindElement(By.LinkText("Add to cart")).Click();
+            return new ShoppingCart(driver);
         }
     }
 }
